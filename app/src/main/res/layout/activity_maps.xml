@@ -1,0 +1,108 @@
+<android.support.design.widget.CoordinatorLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/mainView"
+    >
+
+    <fragment
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="yoeun.samrith.movie_time.MapsActivity" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab"
+        map:layout_anchor="@id/map"
+        map:layout_anchorGravity="bottom|right|end"
+        android:src="@drawable/ic_location"
+        android:layout_margin="16dp"
+        />
+
+    <FrameLayout
+        android:id="@+id/bottom_sheet"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+        app:behavior_peekHeight="120dp"
+        app:behavior_hideable="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:id="@+id/header"
+                >
+                <TextView
+                    android:layout_margin="16dp"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:text="The medium price is $4 "
+                    android:textSize="18sp"
+                    android:textColor="@color/textColor"
+                    android:id="@+id/textView"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone"
+                    android:id="@+id/btnCall"
+                    android:text="តេសួរគេ"
+                    android:textSize="18sp"
+                    android:layout_margin="16dp"
+                    />
+
+            </LinearLayout>
+
+
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/header"
+                android:id="@+id/webView"
+
+            />
+            <ProgressBar
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/progressBar"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+
+
+
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/direction"
+    map:layout_anchor="@id/bottom_sheet"
+    map:layout_anchorGravity="top|right|end"
+    android:src="@drawable/ic_directions"
+    android:layout_margin="16dp"
+    />
+
+
+    </android.support.design.widget.CoordinatorLayout>
